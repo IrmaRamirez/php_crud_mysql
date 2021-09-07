@@ -1,6 +1,6 @@
  <!-- Al presionar el botón de enviar pasará todo esto: -->
 <?php
-include("db.php");
+include("../database/db_connect.php");
 if (isset($_POST['save_task'])) {
     echo 'saving';
     // Variables de la Base de Datos:
@@ -28,5 +28,5 @@ if (isset($_POST['save_task'])) {
     $_SESSION['message_type'] = 'success';
 
     // Al terminar de ejecutarse el botón de enviar, se cargará nuevamente la ventana de "index.php"
-    header("Location: index.php");
+    header("Location: ../index.php");
 }

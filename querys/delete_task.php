@@ -1,5 +1,5 @@
 <?php 
-include ("db.php");
+include ("../database/db_connect.php");
 if(isset($_GET["id"])){
     $id=$_GET['id'];
     $query = "DELETE FROM task WHERE id = $id";
@@ -9,6 +9,6 @@ if(isset($_GET["id"])){
     }
     $_SESSION['message'] = 'Task Removed Successfully';
     $_SESSION['message_type'] = 'danger';
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 ?>

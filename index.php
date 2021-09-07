@@ -1,5 +1,5 @@
 <!-- Invocar el código php para realizar la conección con la Base de Datos en MySQL -->
-<?php include("db.php") ?>
+<?php include("database/db_connect.php") ?>
 
 <!--  Una porcion del código se lleva a otro archivo (Header.php) las etiquetas include invocaran el Fragmento de código de esos archivos para insertarlos reemplazando las etiquetas que los invocan . -->
 <?php include("includes/header.php") ?>
@@ -26,7 +26,7 @@
             } ?>
 
             <div class="card card-body">
-                <form action="save_task.php" method="POST">
+                <form action="querys/save_task.php" method="POST">
                     <div class="form-group">
                         <input type="text" name="title" class="form-control" placeholder="Task Title" autofocus>
                     </div>
@@ -54,17 +54,17 @@
                     $result_tasks = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($result_tasks)) { ?>
                         <tr>
-                            <td><?php echo $row['title']?></td>
-                            <td><?php echo $row['description']?></td>
-                            <td><?php echo $row['created_at']?></td>
+                            <td><?php echo $row['title'] ?></td>
+                            <td><?php echo $row['description'] ?></td>
+                            <td><?php echo $row['created_at'] ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
-                                <i class="fas fa-marker"></i>
-                                <!-- Edits -->
-                            </a>
-                            <a href="delete_task.php?id=<?php echo $row['id']?>" class="btn btn-danger">
-                                <!-- Delete -->
-                                <i class="fas fa-trash-alt"></i>
+                                <a href="querys/edit_task.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
+                                    <i class="fas fa-marker"></i>
+                                    <!-- Edits -->
+                                </a>
+                                <a href="querys/delete_task.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
+                                    <!-- Delete -->
+                                    <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
                         </tr>
